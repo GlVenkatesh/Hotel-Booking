@@ -1,0 +1,83 @@
+
+<%= render 'home/nav' %>
+
+
+
+
+
+
+<br>
+
+<center><h4 class="text-dark font-weight-bold"> Guest Details</h4></center>
+<div class="col d-flex justify-content-center">
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+    
+    <div class="card-body">
+    <strong>Guest: <%= current_user.name %><br>
+      Room NO: <%=@fix_i.no %><br>
+        Price:<%= @fix_i.price %> <br>
+      hotel: <%= @fix_i.hotel.name %><br>
+      CITY: <%= @fix_i.hotel.city.name %><br>
+      </strong>
+      </div>
+    </div>
+    <div class="col-md-8">
+      
+      <%= image_tag @fix_i.room_image ,height:"250",width:"360"%><br>
+      
+    </div>
+  </div>
+</div>
+</div>
+
+  
+   
+<%= form_with model: @fix, url:"/fix/create", method: :post do |f| %>
+    
+    
+  <% if  flash[:error] %>
+  <p class="alert alert-danger">
+  <%= flash[:error] %></p>
+<% end %>
+  <div class ="fixes-dates">
+ 
+
+<div class="card text-center">
+ 
+  <div class="card-body">
+    <div class="field">
+      <%= f.label :check_in,{class: "form-label"} %>
+      <%= f.datetime_field :check_in,{class:"form-control"}%>
+    </div>
+  <div class="field">
+    <%= f.label :check_out,{class: "form-label"} %>
+    <%= f.datetime_field :check_out,{class:"form-control"} %>
+  </div>
+  </div> 
+</div>
+</div>
+     
+
+
+
+
+
+<div class="field">
+  <%= f.hidden_field :room_id,value:([@fix_i.id]) %> 
+</div>
+
+<% @user_id=current_user.id %>
+
+<div class="field">
+<%= f.hidden_field :user_id,value:@user_id %>
+ 
+</div>
+
+
+<% totalprice = @fix_i.price %>
+
+<% session[:amount]=totalprice %>
+<center><%= f.submit "Book", :class=> "btn btn-dark text-white" %></center>
+ <% end %>

@@ -1,0 +1,49 @@
+<%= render 'home/nav' %>
+<br>
+
+<div class="container"> 
+<table>
+<tr>
+<% count=0 %>
+
+<% @booking.each do |c| %>
+<% if (count % 2)==0 %>
+</tr>
+<tr>
+<% end %>
+<% count+=1 %>
+<td>
+     
+
+
+
+<div class="card mb-3">
+<%= image_tag c.room.hotel.hotel_image ,height:"280",width:"500"%><br>
+  <div class="card-body">
+  <h6>
+
+  Name:<%=c.user.name %>|
+  Contact: <%=c.user.phone %>|
+  Room_No: <%= c.room.no %>|
+  Price:<%= c.total_price %><br>
+  Check_IN:<%= c.fix.check_in %>|
+  Check_OUT: <%= c.fix.check_out %>|
+  Hotel:<%= c.room.hotel.name %>|
+  City:<%= c.room.hotel.city.name %><br>
+  </h6>
+  </div>
+</div>
+      
+
+</td>
+<% end %>
+</tr>
+</table>
+
+
+<%=link_to "Home", home_index_path,{class:"btn btn-info text-dark"} %>
+
+</div>
+
+
+

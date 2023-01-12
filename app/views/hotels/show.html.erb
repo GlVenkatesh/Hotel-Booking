@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+<%= image_tag  @hotel.hotel_image %>
+<p>
+  <strong>Name:</strong>
+  <%= @hotel.name %>
+</p>
+
+<p>
+  <strong>Hotel type:</strong>
+  <%= @hotel.hotel_type %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @hotel.address %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @hotel.owner %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @hotel.contact %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @hotel.city_id %>
+</p>
+
+<% @hotel.rooms.each do |i| %>
+  Room_NO: <%=i.no %><br>
+  
+ <% end %>
+
+<%= link_to 'Edit', edit_hotel_path(@hotel) %> |
+<%= link_to 'Back', hotels_path %>

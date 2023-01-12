@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  hotel_type: MyString
+  address: MyText
+  owner: MyString
+  contact: 1
+  city: one
+
+two:
+  name: MyString
+  hotel_type: MyString
+  address: MyText
+  owner: MyString
+  contact: 1
+  city: two

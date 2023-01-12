@@ -1,0 +1,145 @@
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+               <% if notice %>
+<p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+<p class="alert alert-danger"><%= alert %></p>
+<% end %>
+    
+    <!-- Page Navigation -->
+  
+   
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <style>
+  .logo {
+    padding-right: 10px;
+    border-radius: 50%
+  }
+</style>
+
+<img src="/assets/logo.png" alt="Bootstrap" width="60" height="45" class="logo">
+    
+    
+   <a class="navbar-brand" style="padding: 10px;" href="/home/index">Book my room</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+   </button>
+ 
+   <div class="collapse navbar-collapse" id="navbarColor01">
+     <ul class="navbar-nav mr-auto">
+       <li class="nav-item active" style="padding: 10px;">
+         <a class="nav-link  font-weight-bold" href="/home/index">Home <span class="sr-only">(current)</span></a>
+       </li>
+       
+
+       <ul class="navbar-nav mr-auto">
+       <li class="nav-item active" style="padding: 10px;">
+         <a class="nav-link font-weight-bold " href="/home/about">About <span class="sr-only">(current)</span></a>
+       </li>
+       </ul>
+      
+      
+     </ul>
+     <style>
+  .my-form {
+    padding-right: 20px;
+  }
+</style>
+
+<%= form_with url: "/home/search",class:"d-flex my-form",local: true, method: :post do |form| %>
+  <%= form.text_field :keyword ,class:"form-control me-2" ,placeholder:"Search" %>
+  <%= form.submit "Search" ,class:"btn btn-success"%>
+<% end %>
+
+  
+   </div>
+  
+ <div>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="/home/about">About </a>
+  <li class="nav-item">
+          <% if user_signed_in? %>
+          <h6 class ="text-primary"> logged <strong><%= current_user.email %></strong></h6>.
+          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+          <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+        <% end %>
+          </li>
+  <a href="/booking/index">My Bookings</a>
+  <a href="/home/contact">Contact</a>
+</div>
+
+
+
+
+<span style="font-size:30px;cursor:pointer" onclick="openNav()"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+</svg></span>
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+   </div>
+   </div>
+
+ </nav>   
+ </body>

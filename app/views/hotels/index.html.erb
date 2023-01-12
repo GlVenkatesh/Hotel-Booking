@@ -1,0 +1,45 @@
+
+<%= render 'admin/navadmin' %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Hotels</h1>
+
+<div class="fix-table">
+<table class="table table-striped table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Name</th>
+      <th>Hotel type</th>
+      <th>Address</th>
+      <th>Owner</th>
+      <th>Contact</th>
+      <th>City</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+  
+    <% @hotels.each do |hotel| %>
+      <tr>
+        <td><%= hotel.name %></td>
+        <td><%= hotel.hotel_type %></td>
+        <td><%= hotel.address %></td>
+        <td><%= hotel.owner %></td>
+        <td><%= hotel.contact %></td>
+        <td><%= hotel.city_id %></td>
+        <td><%= link_to 'Show', hotel, :class=> "btn btn-info text-dark" %></td>
+        <td><%= link_to 'Edit', edit_hotel_path(hotel), :class=> "btn btn-warning text-dark" %></td>
+        <td><%= link_to 'Destroy', hotel, method: :delete, data: { confirm: 'Are you sure?' }, :class=> "btn btn-danger text-white" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
+
+</div>
+<br>
+<center>
+<%= link_to 'New Hotel', new_hotel_path ,:class=> "btn btn-success text-white" %>|
+<%= link_to "Adminhome", admin_home_path, :class=> "btn btn-light text-dark" %>
+</center>

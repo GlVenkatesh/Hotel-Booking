@@ -1,0 +1,63 @@
+<%= form_with(model: hotel, local: true) do |form| %>
+  <% if hotel.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(hotel.errors.count, "error") %> prohibited this hotel from being saved:</h2>
+
+      <ul>
+        <% hotel.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class= "hotel-card">
+ 
+    
+
+      <div class="field">
+      <h5><strong><%= form.label :name,{class: "form-label"} %></strong></h5>
+        <%= form.text_field :name,{class:"form-control"} %>
+      </div>
+
+      <div class="field">
+      <h5><strong><%= form.label :hotel_type,{class: "form-label"} %></strong></h5>
+        <%= form.text_field :hotel_type,{class:"form-control"} %>
+      </div>
+
+      <div class="field">
+      <h5><strong> <%= form.label :address,{class: "form-label"} %></strong></h5>
+        <%= form.text_area :address,{class:"form-control"} %>
+      </div>
+
+      <div class="field">
+      <h5><strong><%= form.label :owner,{class: "form-label"} %></strong></h5>
+        <%= form.text_field :owner,{class:"form-control"} %>
+      </div>
+
+      <div class="field">
+      <h5><strong><%= form.label :contact,{class: "form-label"} %></strong></h5>
+        <%= form.number_field :contact,{class:"form-control"} %>
+      </div>
+
+      <div class="field">
+      <h5><strong><%= form.label :city_id ,{class: "form-label"}%></strong></h5>
+        <%= form.text_field :city_id,{class:"form-control"} %>
+      </div>
+
+
+      <h5><strong><%= form.label :hotel_image %></strong></h5>
+      <%= form.file_field :hotel_image %>
+
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+
+ 
+  </div>
+<% end %>
+
+
+
+ 
+
+    

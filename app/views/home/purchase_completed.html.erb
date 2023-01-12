@@ -1,0 +1,77 @@
+
+<%= render 'nav' %>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="alert alert-success text-center animate__animated animate__bounceIn">
+        <h3>Thank you for your Booking!
+
+        </h3>
+        
+      </div>
+    </div>
+  </div>
+</div>
+ <br>
+
+ <center><h2> Booking Details </h2></center>
+
+
+
+
+
+  
+
+ 
+
+
+ 
+ 
+
+
+<br>
+
+
+ 
+ <div class="col-lg-14 d-flex align-items-stretch  justify-content-center">
+            
+        
+ <div class="card mb-3" style="max-width: 780px;">
+  <div class="row g-0">
+    <div class="col-md-7">
+    <%= image_tag @fix.room.hotel.hotel_image ,height:"400",width:"420"%><br>
+    </div>
+    <div class="col-md-5">
+      <div class="card-body">
+      <h4 style="color: indigo;"><strong>  Guest Details</strong>
+      <hr>
+      <h5><em>  Name:<%= @fix.user.name %></em><br>
+      <em> Email: <%= @fix.user.email  %></em><br>
+      <em> Phone: <%= @fix.user.phone  %></em><br>
+<hr>
+    <h4 style="color: green;"><strong> Room Details</strong></h4>
+    <hr>
+      <i> Room Number: <%= @fix.room.no %></i><br>
+        
+      <i> Price: <%= @fix.total_price  %></i><br>
+      
+      <i> Hotel: <%= @fix.room.hotel.name  %></i><br>
+      <i> Check-in: <%= @fix.fix.check_in %></i><br>
+      <i>  Check-out: <%= @fix.fix.check_out%></i><br>
+      <i> Address: <%= @fix.room.hotel.address %></i><br>
+     </h5>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+<center><a href ="/home/index" class="btn btn-light text-dark"> Click to Continue  </a> 
+
+<a href="/booking/index" class="btn btn-dark text-white">My Bookings</a></center>
+
+

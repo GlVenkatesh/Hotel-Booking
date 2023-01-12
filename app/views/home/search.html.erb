@@ -1,0 +1,33 @@
+
+<%= render 'nav' %>
+
+<table>
+<tr>
+<% count=0 %>
+
+<% @search.each do |c| %>
+<% if (count % 4)==0 %>
+</tr>
+<tr>
+<% end %>
+<% count+=1 %>
+<td>
+            <div class="city-style">
+         
+            <div class="card" style="width: 20rem;">
+            <%= image_tag c.city_image ,height:"250",width:"320"%><br>
+            <div class="card-body">
+            <h3 class ="text-primary">
+            <%=c.name %></h3>
+            <hr>
+            <%=link_to "View", home_full_view_path(:city_id=>c),{class:"btn btn-info text-white"} %>
+    
+            </div>
+          </div>
+            </div>
+
+
+</td>
+<% end %>
+</tr>
+</table>

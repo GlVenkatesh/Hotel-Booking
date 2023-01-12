@@ -1,0 +1,59 @@
+<%= render 'nav' %>
+<br>
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/assets/pexels-chait-goli-2083838.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="/assets/hotel.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="/assets/pexels-pixabay-417192.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="/assets/room.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="/assets/india.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+</div>
+<br>
+ <center><h2 class="text-dark font-weight-bold">CITIES  </h2></center>
+<br>
+<table>
+<tr>
+<% count=0 %>
+
+<% @cities.each do |c| %>
+<% if (count % 4)==0 %>
+</tr>
+<tr>
+<% end %>
+<% count+=1 %>
+<td>
+            <div class="container">
+            <div class="city-style">
+         
+            <div class="card" style="width: 20rem;">
+            <%= image_tag c.city_image ,height:"250",width:"320"%><br>
+            <div class="card-body">
+            <h3 class ="text-primary">
+            <%=c.name %></h3>
+            <hr>
+            <div class="color-text">
+            
+            <%=link_to "View", home_full_view_path(:city_id=>c),{class:"btn btn-warning text-dark"} %>
+            </div>
+            </div>
+          </div>
+            </div>
+            </div>
+
+</td>
+<% end %>
+</tr>
+</table>
+

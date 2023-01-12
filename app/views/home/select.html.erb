@@ -1,0 +1,57 @@
+<%= render 'nav' %>
+<br>
+<center><h2 class="text-dark font-weight-bold"><%= @room.name %></h2>
+
+</center>
+
+<hr>
+<center> <img src="/assets/ro.svg" alt="Girl in a jacket" width="100" height="100"><h4> List Of Rooms </h4></center>
+
+
+<table>
+<tr>
+<% count=0 %>
+
+<% @room.rooms.each do |i| %>
+   
+
+<% if (count%5)==0 %>
+</tr>
+<tr>
+<% end %>
+<% count +=1 %>
+<td>
+<div class="container">
+<div class="city-style">
+<div class="card" style="width: 20rem;">
+<%= image_tag i.room_image ,height:"250",width:"320"%><br>
+  <div class="card-body">
+  <h6 class="text-secondary">
+  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-door-closed" viewBox="0 0 16 16">
+  <path d="M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V2zm1 13h8V2H4v13z"/>
+  <path d="M9 9a1 1 0 1 0 2 0 1 1 0 0 0-2 0z"/>
+</svg>: <%=i.no %><br>
+<img src="/assets/ac.svg" alt="Girl in a jacket" width="40" height="40">
+  <%=i.room_type %> <br>
+  <img src="/assets/bed.svg" alt="Girl in a jacket" width="40" height="40">:<%= i.description %></h6>
+  <img src="/assets/bathtub.svg" alt="Girl in a jacket" width="30" height="30">
+  <img src="/assets/window.svg" alt="Girl in a jacket" width="30" height="30">
+  <hr>
+  <h6 class="text-danger"> <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+  <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z"/>
+</svg><%= i.price %></h6> <br>
+  <%=link_to "Book", fix_index_path(:room_id=>i.id),{class:"btn btn-info text-white"} %> 
+  <%=link_to "BACK", home_index_path,{class:"btn btn-light text-dark"} %>
+  
+  </div>
+</div>
+</div>
+</div>
+
+
+</td>
+
+<% end %>
+
+</tr>
+</table>

@@ -1,0 +1,119 @@
+<%= render 'nav' %>
+
+
+
+
+<%=flash[:notice] %>
+
+
+
+
+
+
+  
+	
+<br>
+
+
+  <section class="intro">
+  <div class="bg-image-vertical h-100" style="background-color: #EFD3E4;
+          background-image: url(https://mdbootstrap.com/img/Photos/new-templates/search-box/img1.jpg);
+        ">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container" style ="padding-bottom:200px;">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10">
+            <div class="card">
+            <div class="card-body p-5">
+			<div class="checkout">
+                <h1 class="mb-5 text-center">Checkout Form</h1>
+
+				<h3> Total amount to be paid : <%= (session[:amount]* @days) %> </h3>
+
+				<%= form_with url: checkout_path(:id=>@id), method: :post do |f| %>
+
+                  <!-- 2 column grid layout with text inputs for the first and last names -->
+                  <div class="row">
+                    <div class="col-12 col-md-6 mb-4">
+						<div class ="field">
+							<%= f.label :first_name %><br>
+							<%= f.text_field :first_name %>
+						</div>
+                    </div>
+                    <div class="col-12 col-md-6 mb-4">
+						<div class ="field">
+							<%=f.label :last_name %> <br>
+							<%=f.text_field :last_name %>
+						</div>
+                    </div>
+                  </div>
+
+                
+                  
+                  <div class="form-outline mb-4">
+					<div class ="field">
+						<%=f.label :credit_card_no %> <br>
+						<%=f.text_field :credit_card_no %>
+					</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-12 col-md-6 mb-4">
+					<div class="field">
+					<%= f.label :date_of_expiry %><br />
+						<select name="check[month]" id="check_out_month">
+						<option selected value="01">Janurary 
+						<option  value="02">Feburary
+						<option  value="03">March
+						<option  value="04">April 
+						<option  value="05">May 
+						<option  value="06">June 
+						<option  value="07">July 
+						<option  value="08">August 
+						<option  value="09">September 
+						<option  value="10">October 
+						<option  value="11">November 
+						<option  value="12">December 
+						</select>
+						<select name="check[year]" id=check_out_year">
+						<option selected value="2022">2022
+						<option  value="2023">2023
+						<option  value="2024">2024
+						<option  value="2025">2025
+						<option  value="2026">2026
+						<option  value="2027">2027
+						<option  value="2028">2028
+						<option  value="2029">2029
+						<option  value="2030">2030
+						<option  value="2031">2031
+						<option  value="2032">2032
+						<option  value="2033">2033
+					</select>
+				  </div>
+                    </div>
+                    <div class="col-12 col-md-6 mb-4">
+						<div class ="field">
+						<%= f.label :verification_number %><br />
+						<%= f.text_field :verification_number %>
+						</div>
+                    </div>
+                  </div>
+                  
+
+                  <!-- Submit button -->
+				  <div class="actions">
+				  <%= f.submit "Submit"%>
+				</div>
+			<% end %>
+                  
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+  

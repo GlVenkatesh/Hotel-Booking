@@ -1,0 +1,52 @@
+<%= render 'nav' %>
+<br>
+<center><h2 class="text-dark font-weight-bold"><%=@hotels.name %></h2></center>
+<hr>
+<center><img src="/assets/ho.svg" alt="Girl in a jacket" width="100" height="100"> <h4> List Of Hotels </h4></center>
+<br>
+<table>
+<tr>
+<% count=0 %>
+
+<% @hotels.hotels.each do |i| %>
+<% if (count % 5)==0 %>
+</tr>
+<tr>
+<% end %>
+<% count+=1 %>
+<td>
+
+<div class="container">
+<div class="city-style">
+<div class="card" style="width: 20rem;">
+<%= image_tag i.hotel_image ,height:"250",width:"320"%><br>
+  <div class="card-body">
+ 
+  <h6><span style="color: indigo;"><strong>
+  <img src="/assets/hotel.svg" alt="Girl in a jacket" width="30" height="30"></strong></span><span><strong> <%=i.name %></strong></span></h6>
+  <h6> <span style="color: green;"><strong><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg></strong></span><span> <%=i.hotel_type %></span></h6><br>
+  <h6> <span style="color: green;"><strong><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+  <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+</svg></strong></span> <span><%= i.address %></span></h6><br>
+  
+  <h6 style="color: purple;"><i><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
+  <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+</svg></i> <%=i.contact%></h6>
+  
+  <%=link_to "Select" , home_select_path(:hotel_id=>i),{class:"btn btn-primary text-white"} %> |
+  <%=link_to "BACK", home_index_path,{class:"btn btn-light text-dark"} %>
+  
+   
+  </div>
+</div>
+</div>
+</div>
+
+
+
+</td>
+<% end %>
+</tr>
+</table>

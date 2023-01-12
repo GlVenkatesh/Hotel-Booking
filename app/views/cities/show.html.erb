@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+<%= image_tag @city.city_image %>
+<p>
+  <strong>Name:</strong>
+  <%= @city.name %>
+</p>
+
+<% @city.hotels.each do |i| %>
+  Hotel: <%=i.name %><br>
+  
+ <% end %>
+
+<%= link_to 'Edit', edit_city_path(@city) %> |
+<%= link_to 'Back', cities_path %>

@@ -1,0 +1,46 @@
+
+<%= form_with model: @fix, local: true do |form| %>
+ 
+ 
+
+
+    <% if @fix.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@fix.errors.count, "error") %> 
+        </h2>
+        <ul>
+          <% @fix.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+   
+    <div class="field">
+    <%= f.label :check_in %>
+    <%= f.date_field :check_in %>
+    </div>
+  
+  
+    <div class="field">
+    <%= f.label :check_out %>
+    <%= f.date_field :check_out %>
+    </div>
+   
+    <div class="field">
+  
+    <%= f.select :room_id, options_for_select([@fix_i.id]) %>
+    
+  </div>
+
+  <div class="field">
+  <%= f.hidden_field :user_id,value:@user_id %>
+</div>
+  
+    <p>
+      <%= form.submit %>
+    </p>
+    
+   
+  <% end %>
